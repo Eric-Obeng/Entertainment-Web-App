@@ -1,5 +1,5 @@
 export interface IThumbnail {
-  treding: {
+  trending: {
     small: string;
     large: string;
   };

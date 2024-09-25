@@ -5,7 +5,7 @@ export interface IMedia {
   thumbnail: IThumbnail;
   year: number;
   category: 'Movie' | 'Tv Series';
-  reting: string;
+  rating: string;
   isBookmard: string;
   isTrending: boolean;
 }
