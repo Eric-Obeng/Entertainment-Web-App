@@ -1,0 +1,47 @@
+@use "../../../styleSheet/breakpoints";
+@use "../../../styleSheet/mixins" as *;
+@use "../../../styleSheet/variables" as *;
+@use "../../../styleSheet/mixins" as *;
+
+.header-container {
+  width: 100%;
+  height: 5.6rem;
+  background-color: $dark-blue-light;
+  @include flex-row(center, space-between);
+  padding: 1.6rem;
+
+  .pages {
+    @include flex-row(start, start, 2.4rem);
+
+    & svg {
+      fill: $grey-blue;
+      cursor: pointer;
+
+      &:hover {
+        fill: $red;
+      }
+    }
+  }
+  .profile {
+    width: 2.4rem;
+  }
+}
+
+@include breakpoints.mq(tablet) {
+  .header-container {
+    border-radius: 1rem;
+  }
+}
+@include breakpoints.mq(desktop) {
+  .header-container {
+    @include flex-column(center, space-between);
+    height: calc(100vh - 6.4rem);
+    width: 9.6rem;
+
+    .pages {
+      @include flex-column(center, start, 2.4rem);
+      flex: 1;
+      margin-top: 3.2rem;
+    }
+  }
+}
