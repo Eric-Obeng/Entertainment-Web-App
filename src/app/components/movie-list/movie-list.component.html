@@ -4,9 +4,31 @@
   </div>
   <div class="main">
     <app-search class="search" />
-    <div>
-      @for (movie of movies; track $index) {
-      <p>{{ movie.title }}</p>
+    <div class="movies">
+      @if(category === null) {
+      <div class="trending-movies-contaiiner">
+        <p class="title">Trending</p>
+        <div class="trending-movies">
+          @for (movie of movies; track $index) { @if (movie.isTrending) {
+          <app-movie-card [movie]="movie" [isTrending]="true" />
+          } }
+        </div>
+      </div>
+      <div class="recommended">
+        <p class="title">Recomended for you</p>
+        <div class="recommended-movies">
+          @for (movie of movies; track $index) {
+          <app-movie-card [movie]="movie" [isTrending]="false" />
+          }
+        </div>
+      </div>
+      } @else {
+      <h4>{{ category === "movie" ? "Movies" : (category | uppercase) }}</h4>
+      <div class="recommended-movies">
+        @for (movie of movies; track $index) {
+        <app-movie-card [movie]="movie" [isTrending]="false" />
+        }
+      </div>
       }
     </div>
   </div>

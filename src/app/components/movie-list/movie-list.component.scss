@@ -4,6 +4,7 @@
 .app {
   width: 100%;
   @include flex-column();
+  overflow-x: hidden;
 
   .header {
     width: 100%;
@@ -13,9 +14,27 @@
     @include flex-column(start, start, 3.3rem);
     width: 100%;
     padding: 1.6rem;
+    overflow: auto;
 
     .search {
       width: 100%;
+    }
+
+    .movies {
+      @include flex-column(start, start, 2.4rem);
+      width: 100%;
+
+      .trending-movies-contaiiner {
+        @include flex-column(start, start, 2.4rem);
+        overflow: auto;
+        width: 100%;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+
+        .trending-movies {
+          @include flex-row(start, start, 2.4rem);
+        }
+      }
     }
   }
 }
@@ -34,6 +53,7 @@
   .app {
     @include flex-row(start, start);
     padding: 3.2rem;
+    height: 100vh;
     overflow: hidden;
 
     .header {
@@ -42,11 +62,10 @@
 
     .main {
       padding: 2rem 3.6rem;
-      overflow: auto;
-      flex: 1;
+      overflow: scroll;
       height: calc(100vh - 6.4rem);
-      overflow: auto;
       scrollbar-width: none;
+      scroll-behavior: smooth;
     }
   }
 }
