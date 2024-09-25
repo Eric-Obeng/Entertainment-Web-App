@@ -20,5 +20,9 @@ export const movieReducer = createReducer(
   on(MovieActions.loadMoviesFailure, (state, { error }) => {
     console.error(error);
     return state;
-  })
+  }),
+  on(MovieActions.setSearchMovie, (state, { searchMovie }) => ({
+    ...state,
+    searchMovie,
+  }))
 );
