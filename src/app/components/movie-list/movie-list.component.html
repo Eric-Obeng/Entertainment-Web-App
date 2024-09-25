@@ -1,0 +1,13 @@
+<div *ngIf="movies$ | async as movies" class="app">
+  <div class="header">
+    <app-header />
+  </div>
+  <div class="main">
+    <app-search class="search" />
+    <div>
+      @for (movie of movies; track $index) {
+      <p>{{ movie.title }}</p>
+      }
+    </div>
+  </div>
+</div>

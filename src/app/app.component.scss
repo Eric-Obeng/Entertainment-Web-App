@@ -1,42 +1,42 @@
-@use "../styleSheet/breakpoints";
-@use "../styleSheet/mixins" as *;
+// @use "../styleSheet/breakpoints";
+// @use "../styleSheet/mixins" as *;
 
-.app {
-  width: 100%;
-  @include flex-column();
+// .app {
+//   width: 100%;
+//   @include flex-column();
 
-  .header {
-    width: 100%;
-  }
+//   .header {
+//     width: 100%;
+//   }
 
-  .main {
-    width: 100%;
-  }
-}
+//   .main {
+//     width: 100%;
+//   }
+// }
 
-@include breakpoints.mq(tablet) {
-  .app {
-    padding: 2.4rem;
-    border-radius: 1rem;
-  }
-}
-@include breakpoints.mq(desktop) {
-  .app {
-    @include flex-row(start, start);
-    padding: 3.2rem;
-    overflow: hidden;
+// @include breakpoints.mq(tablet) {
+//   .app {
+//     padding: 2.4rem;
+//     border-radius: 1rem;
+//   }
+// }
+// @include breakpoints.mq(desktop) {
+//   .app {
+//     @include flex-row(start, start);
+//     padding: 3.2rem;
+//     overflow: hidden;
 
-    .header {
-      width: 9.6rem;
-    }
+//     .header {
+//       width: 9.6rem;
+//     }
 
-    .main {
-      padding: 2.4rem 0;
-      overflow: auto;
-      flex: 1;
-      height: calc(100vh - 6.4rem);
-      overflow: auto;
-      scrollbar-width: none;
-    }
-  }
-}
+//     .main {
+//       padding: 2.4rem 0;
+//       overflow: auto;
+//       flex: 1;
+//       height: calc(100vh - 6.4rem);
+//       overflow: auto;
+//       scrollbar-width: none;
+//     }
+//   }
+// }

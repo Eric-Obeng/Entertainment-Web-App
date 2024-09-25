@@ -14,17 +14,21 @@
     border: none;
     outline: none;
     caret-color: $red;
-    @extend .heading-xs;
+    border-bottom: 0.2rem solid transparent;
 
-    &:active, &:focus-within {
-      border-bottom: .2rem solid $grey-blue;
+    @extend .heading-m;
+
+    &:active,
+    &:focus-within {
+      border-bottom: 0.2rem solid $grey-blue;
       color: $white;
     }
 
     &::placeholder {
       color: $white;
-      @extend .body-s;
-
+      @extend .heading-m;
+      font-weight: 400;
+      color: #2c2c2c;
     }
   }
 }
