@@ -21,6 +21,18 @@
         fill: $red;
       }
     }
+
+    .activeRoute {
+      svg {
+        fill: $white;
+      }
+
+      &:hover {
+        svg {
+          fill: $red;
+        }
+      }
+    }
   }
   .profile {
     width: 2.4rem;
