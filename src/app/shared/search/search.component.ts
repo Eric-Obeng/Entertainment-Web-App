@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { debounceTime, fromEvent, map, Observable, tap } from 'rxjs';
+import { setSearchMovie } from '../state/movie/movie.actions';
+import { selectSearchMovie } from '../state/movie/movie.selectors';
 
 @Component({
   selector: 'app-search',
@@ -11,14 +14,32 @@ import { Store } from '@ngrx/store';
 })
 export class SearchComponent {
   category!: string | null;
+  searchMovie$!: Observable<string>;
+  searchValue!: string;
+
   constructor(private store: Store, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.route.params.subscribe((params) => {
       this.category = params['category'] || null;
     });
+
+    const searchInput = document.querySelector('.search') as HTMLElement;
+
+    fromEvent(searchInput, 'input')
+      .pipe(
+        map((event: Event) => (event.target as HTMLInputElement).value),
+        debounceTime(400),
+        tap((query) => {
+          this.store.dispatch(setSearchMovie({ searchMovie: query }));
+        })
+      )
+      .subscribe();
+
+    this.searchMovie$ = this.store.select(selectSearchMovie);
+    this.searchMovie$.subscribe(
+      (searchMove) => (this.searchValue = searchMove)
+    );
   }
 
   getPlaceHolder() {
