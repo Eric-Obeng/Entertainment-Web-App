@@ -1,0 +1,100 @@
+@use "../../../styleSheet/breakpoints";
+@use "../../../styleSheet/mixins" as *;
+@use "../../../styleSheet/typography" as *;
+@use "../../../styleSheet/variables" as *;
+
+.trending-movies {
+  width: 24rem;
+  position: relative;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    .play-div {
+      @include flex-row(center, center);
+      z-index: 1;
+    }
+
+    .card-img {
+      transform: scale(1.1);
+    }
+  }
+
+  .play-div {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    button {
+      @include flex-row(center, space-evenly);
+      width: 11.7rem;
+      height: 4.8rem;
+      border: none;
+      border-radius: 2.85rem;
+      background: rgba($color: #ffffff, $alpha: 0.5);
+      cursor: pointer;
+      @extend .heading-xs;
+      color: $white;
+    }
+  }
+
+  .bookmark {
+    position: absolute;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    background: #979797;
+    border: none;
+    top: 0.8rem;
+    right: 0.8rem;
+    z-index: 2;
+  }
+  .card-info {
+    width: 100%;
+    position: absolute;
+    z-index: 0.5;
+    bottom: 0;
+    padding: 1.6rem;
+    @include flex-column(start, center, 0.4rem);
+
+    div {
+      @include flex-row(center, center, 0.8rem);
+      height: 1.5rem;
+      text-align: center;
+
+      span {
+        display: inline-block;
+        text-align: center;
+
+        &.category {
+          @include flex-row(center, center, 0.8rem);
+        }
+      }
+    }
+
+    .title {
+      @extend .heading-xs;
+    }
+  }
+
+  .card-img {
+    transition: all 0.3s ease-in-out;
+
+    // border-radius: 0.8rem;
+  }
+}
+
+
+@include breakpoints.mq(tablet) {
+  .trending-movies  {
+    width: 47rem;
+  }
+}
