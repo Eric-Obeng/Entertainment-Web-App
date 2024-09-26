@@ -80,6 +80,9 @@
       <button type="submit" [disabled]="signUpForm.invalid">
         Create an account
       </button>
+      <div>
+        Already have an account? <a [routerLink]="['/login']">Login</a>
+      </div>
     </form>
   </div>
 </div>
