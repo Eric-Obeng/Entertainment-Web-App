@@ -69,16 +69,19 @@
   </div>
 </div>
 
-@if (showModal) {
-<div class="modal" (click)="onHideModal()">
-  <div class="actions" (click)="$event.stopPropagation()">
-    @if (!login) {
-    <button>Logout</button>
-    } @else {
-
-    <button>Login</button>
-    <button>Register</button>
-    }
+<div *ngIf="showModal">
+  <div class="modal" (click)="onHideModal()">
+    <div class="actions" (click)="$event.stopPropagation()">
+      <button
+        *ngIf="isloggedIn$ | async; else loginRegisterTemplate"
+        (click)="logOut()"
+      >
+        Logout
+      </button>
+      <ng-template #loginRegisterTemplate>
+        <button [routerLink]="['/login']">Login</button>
+        <button [routerLink]="['/register']">Register</button>
+      </ng-template>
+    </div>
   </div>
 </div>
-}

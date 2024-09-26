@@ -23,7 +23,6 @@ export class MovieListComponent {
   trendingMovies: IMedia[] = [];
 
   constructor(private route: ActivatedRoute, private store: Store) {
-    console.log(this.category);
   }
 
   ngOnInit(): void {
