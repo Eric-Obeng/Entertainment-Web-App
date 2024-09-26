@@ -7,6 +7,13 @@ export const routes: Routes = [
       import('./shared/login/login.component').then((l) => l.LoginComponent),
   },
   {
+    path: 'register',
+    loadComponent: () =>
+      import('./shared/sign-up/sign-up.component').then(
+        (s) => s.SignUpComponent
+      ),
+  },
+  {
     path: '',
     // title: 'category',
     loadComponent: () =>

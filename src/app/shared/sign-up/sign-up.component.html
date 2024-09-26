@@ -1,1 +1,85 @@
-<p>sign-up works!</p>
+<div class="signup-div">
+  <div class="signup">
+    <svg class="logo" width="33" height="27" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="m26.463.408 3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-1.6a3.186 3.186 0 0 0-3.184 3.2l-.016 19.2a3.2 3.2 0 0 0 3.2 3.2h25.6a3.2 3.2 0 0 0 3.2-3.2V.408h-6.4Z"
+        fill="#FC4747"
+      />
+    </svg>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <h2>Sign Up</h2>
+      <div class="group">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email address"
+          formControlName="email"
+          autocomplete="email"
+        />
+        <div
+          class="error"
+          *ngIf="
+            signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid
+          "
+        >
+          <small *ngIf="signUpForm.get('email')?.errors?.['required']"
+            >Can't be empty</small
+          >
+          <small *ngIf="signUpForm.get('email')?.errors?.['email']"
+            >Enter a valid email address</small
+          >
+        </div>
+      </div>
+      <div class="group">
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <div
+          class="error"
+          *ngIf="
+            signUpForm.get('email')?.touched &&
+            signUpForm.get('password')?.invalid
+          "
+        >
+          <small *ngIf="signUpForm.get('password')?.errors?.['required']"
+            >Can't be empty</small
+          >
+          <small *ngIf="signUpForm.get('password')?.errors?.['minlength']"
+            >Invalid password</small
+          >
+        </div>
+      </div>
+      <div class="group">
+        <input
+          type="password"
+          name="repeatPassword"
+          id="repeatPassword"
+          placeholder="Repeat password"
+          formControlName="repeatPassword"
+        />
+        <div
+          class="error"
+          *ngIf="
+            signUpForm.get('email')?.touched &&
+            signUpForm.get('password')?.invalid
+          "
+        >
+          <small *ngIf="signUpForm.get('repeatPassword')?.errors?.['required']"
+            >Can't be empty</small
+          >
+          <small *ngIf="signUpForm.get('repeatPassword')?.errors?.['minlength']"
+            >Invalid password</small
+          >
+        </div>
+      </div>
+      <button type="submit" [disabled]="signUpForm.invalid">
+        Create an account
+      </button>
+    </form>
+  </div>
+</div>
