@@ -10,6 +10,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
   showModal: boolean = false;
+  login: boolean = true
 
   toggleModal() {
     this.showModal = !this.showModal;

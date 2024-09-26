@@ -1,0 +1,61 @@
+<div class="login-div">
+  <div class="login">
+    <svg class="logo" width="33" height="27" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="m26.463.408 3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-1.6a3.186 3.186 0 0 0-3.184 3.2l-.016 19.2a3.2 3.2 0 0 0 3.2 3.2h25.6a3.2 3.2 0 0 0 3.2-3.2V.408h-6.4Z"
+        fill="#FC4747"
+      />
+    </svg>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h2>Login</h2>
+      <div class="group">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email address"
+          formControlName="email"
+        />
+        <div
+          class="error"
+          *ngIf="
+            loginForm.get('email')?.touched && loginForm.get('email')?.invalid
+          "
+        >
+          <small *ngIf="loginForm.get('email')?.errors?.['required']"
+            >Can't be empty</small
+          >
+          <small *ngIf="loginForm.get('email')?.errors?.['email']"
+            >Enter a valid email address</small
+          >
+        </div>
+      </div>
+      <div class="group">
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <div
+          class="error"
+          *ngIf="
+            loginForm.get('email')?.touched &&
+            loginForm.get('password')?.invalid
+          "
+        >
+          <small *ngIf="loginForm.get('password')?.errors?.['required']"
+            >Can't be empty</small
+          >
+          <small *ngIf="loginForm.get('password')?.errors?.['minlength']"
+            >Invalid password</small
+          >
+        </div>
+      </div>
+      <button type="submit" [disabled]="loginForm.valid">
+        Login to your account
+      </button>
+    </form>
+  </div>
+</div>

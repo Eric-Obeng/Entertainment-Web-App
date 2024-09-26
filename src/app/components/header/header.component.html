@@ -72,8 +72,13 @@
 @if (showModal) {
 <div class="modal" (click)="onHideModal()">
   <div class="actions" (click)="$event.stopPropagation()">
+    @if (!login) {
+    <button>Logout</button>
+    } @else {
+
     <button>Login</button>
     <button>Register</button>
+    }
   </div>
 </div>
 }
