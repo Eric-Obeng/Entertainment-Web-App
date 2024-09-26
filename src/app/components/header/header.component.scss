@@ -2,6 +2,7 @@
 @use "../../../styleSheet/mixins" as *;
 @use "../../../styleSheet/variables" as *;
 @use "../../../styleSheet/mixins" as *;
+@use "../../../styleSheet/typography" as *;
 
 .header-container {
   width: 100%;
@@ -35,13 +36,59 @@
     }
   }
   .profile {
+    cursor: pointer;
     width: 2.4rem;
+  }
+}
+
+.modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  z-index: 5;
+
+  .actions {
+    position: absolute;
+    top: 6rem;
+    right: 1rem;
+    width: 25rem;
+    height: 15rem;
+    background-color: $dark-blue;
+    border-radius: 2rem;
+    @include flex-column(center, center, 1rem);
+
+    button {
+      width: 100%;
+      height: 3rem;
+      width: 20rem;
+      // padding: 0.8rem;
+      background: $red;
+      color: $white;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      @extend .heading-xs;
+
+      &:hover {
+        background-color: #fa5555;
+      }
+    }
   }
 }
 
 @include breakpoints.mq(tablet) {
   .header-container {
     border-radius: 1rem;
+  }
+
+  .modal {
+    .actions {
+      top: 10rem;
+      right: 4rem;
+    }
   }
 }
 @include breakpoints.mq(desktop) {
@@ -54,6 +101,14 @@
       @include flex-column(center, start, 2.4rem);
       flex: 1;
       margin-top: 3.2rem;
+    }
+  }
+
+  .modal {
+    .actions {
+      top: 75%;
+      left: 15rem;
+      bottom: 0;
     }
   }
 }

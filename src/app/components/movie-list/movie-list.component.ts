@@ -40,14 +40,15 @@ export class MovieListComponent {
       });
   }
 
-  // getTredingMovies() {
-  //   this.movies$.pipe(map((movie) => movie)).subscribe((movie) => {
-  //     movie.forEach((movie) => {
-  //       if (movie.isTrending) {
-  //         this.isTrending = true;
-  //         this.trendingMovies.push(movie);
-  //       }
-  //     });
-  //   });
-  // }
+  getCategoryName() {
+    if (this.category === 'movie') {
+      return `Movies`;
+    } else if (this.category === 'tv series') {
+      return `TV Series`;
+    } else if (this.category === 'bookmark') {
+      return `Bookmarked Movies`;
+    } else {
+      return `Recommended for you`;
+    }
+  }
 }

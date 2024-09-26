@@ -6,8 +6,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  showModal: boolean = false;
 
+  toggleModal() {
+    this.showModal = !this.showModal;
+  }
+
+  onHideModal() {
+    this.showModal = false;
+  }
 }

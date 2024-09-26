@@ -6,7 +6,7 @@
     <app-search class="search" />
     <div class="movies">
       @if(category === null) {
-      <div class="trending-movies-contaiiner">
+      <div class="trending-movies-container">
         <p class="title">Trending</p>
         <div class="trending-movies">
           @for (movie of movies; track $index) { @if (movie.isTrending) {
@@ -23,12 +23,15 @@
         </div>
       </div>
       } @else {
-      <h4>{{ category === "movie" ? "Movies" : (category | uppercase) }}</h4>
-      <div class="recommended-movies">
-        @for (movie of movies; track $index) {
-        <app-movie-card [movie]="movie" [isTrending]="false" />
-        }
+      <div class="category">
+        <h4>{{ getCategoryName() }}</h4>
+        <div class="recommended-movies">
+          @for (movie of movies; track $index) {
+          <app-movie-card [movie]="movie" [isTrending]="false" />
+          }
+        </div>
       </div>
+
       }
     </div>
   </div>

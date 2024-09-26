@@ -24,16 +24,42 @@
       @include flex-column(start, start, 2.4rem);
       width: 100%;
 
-      .trending-movies-contaiiner {
+      .trending-movies-container {
         @include flex-column(start, start, 2.4rem);
-        overflow: auto;
+        overflow: hidden;
         width: 100%;
-        scrollbar-width: none;
-        scroll-behavior: smooth;
 
         .trending-movies {
           @include flex-row(start, start, 2.4rem);
+          overflow: auto;
+          width: 100%;
+          scrollbar-width: none;
+          scroll-behavior: smooth;
         }
+      }
+    }
+
+    .recommended {
+      width: 100%;
+      @include flex-column(start, start, 2.4rem);
+
+      .recommended-movies {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 1.5rem;
+        grid-row-gap: 1.5rem;
+      }
+    }
+
+    .category {
+      width: 100%;
+      @include flex-column(start, start, 2.4rem);
+
+      .recommended-movies {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 1.5rem;
+        grid-row-gap: 1.5rem;
       }
     }
   }
@@ -46,6 +72,17 @@
 
     .main {
       padding: 2.4rem;
+
+      .recommended {
+        .recommended-movies {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .category {
+        .recommended-movies {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
     }
   }
 }
@@ -66,6 +103,17 @@
       height: calc(100vh - 6.4rem);
       scrollbar-width: none;
       scroll-behavior: smooth;
+
+      .recommended {
+        .recommended-movies {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      .category {
+        .recommended-movies {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
     }
   }
 }

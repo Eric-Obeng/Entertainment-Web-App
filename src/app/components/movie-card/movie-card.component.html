@@ -56,62 +56,66 @@
 </div>
 } @else {
 <div class="movies">
-  <div class="play-div">
-    <button>
-      <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M15 0C6.713 0 0 6.713 0 15c0 8.288 6.713 15 15 15 8.288 0 15-6.712 15-15 0-8.287-6.712-15-15-15Zm-3 21V8l9 6.5-9 6.5Z"
-          fill="#FFF"
-        />
-      </svg>
-      Play
-    </button>
-  </div>
-  <button class="bookmark">
-    <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"
-        stroke="#FFF"
-        stroke-width="1.5"
-        fill="none"
-      />
-    </svg>
-  </button>
-  <div class="card-img">
-    <picture>
-      <source
-        media="(min-width: 576px)"
-        srcset="{{movie.thumbnail.regular.medium}}"
-      />
-      <source
-        media="(min-width: 765px)"
-        srcset="{{movie.thumbnail.regular.large}}"
-      />
-      <img
-        src="{{ movie.thumbnail.regular.small }}"
-        alt="{{ movie.title }} image"
-      />
-    </picture>
-  </div>
-  <div class="card-info">
-    <div>
-      <span>{{ movie.year }} </span>
-      <span class="dot">.</span>
-      <span class="category">
-        <img
-          src="{{
-            movie.category === 'Movie'
-              ? '../../../../../assets/icon-category-movie.svg'
-              : '../../../../../assets/icon-category-tv.svg'
-          }}"
-          alt="{{ movie.category }} icon"
-        />
-        {{ movie.category }}
-      </span>
-      <span class="dot">.</span>
-      <span>{{ movie.rating }}</span>
+  <div>
+    <div class="movies-div">
+      <div class="play-div">
+        <button>
+          <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15 0C6.713 0 0 6.713 0 15c0 8.288 6.713 15 15 15 8.288 0 15-6.712 15-15 0-8.287-6.712-15-15-15Zm-3 21V8l9 6.5-9 6.5Z"
+              fill="#FFF"
+            />
+          </svg>
+          Play
+        </button>
+      </div>
+      <button class="bookmark">
+        <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"
+            stroke="#FFF"
+            stroke-width="1.5"
+            fill="none"
+          />
+        </svg>
+      </button>
+      <div class="card-img">
+        <picture>
+          <source
+            media="(min-width: 576px)"
+            srcset="{{movie.thumbnail.regular.medium}}"
+          />
+          <source
+            media="(min-width: 765px)"
+            srcset="{{movie.thumbnail.regular.large}}"
+          />
+          <img
+            src="{{ movie.thumbnail.regular.small }}"
+            alt="{{ movie.title }} image"
+          />
+        </picture>
+      </div>
     </div>
-    <span class="title">{{ movie.title }}</span>
+    <div class="card-info">
+      <div>
+        <span>{{ movie.year }} </span>
+        <span class="dot">&#8226;</span>
+        <span class="category">
+          <img
+            src="{{
+              movie.category === 'Movie'
+                ? '../../../../../assets/icon-category-movie.svg'
+                : '../../../../../assets/icon-category-tv.svg'
+            }}"
+            alt="{{ movie.category }} icon"
+          />
+          {{ movie.category }}
+        </span>
+        <span class="dot">&#8226;</span>
+        <span>{{ movie.rating }}</span>
+      </div>
+      <span class="title">{{ movie.title }}</span>
+    </div>
   </div>
 </div>
 }
