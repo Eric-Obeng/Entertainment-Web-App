@@ -105,14 +105,12 @@
   div {
     @include flex-column(center, center, 0.8rem);
 
-
     .movies-div {
       overflow: hidden;
       position: relative;
       overflow: hidden;
       border-radius: 0.8rem;
       @include flex-column(center, center);
-
 
       &:hover {
         .play-div {
@@ -160,6 +158,13 @@
         top: 0.8rem;
         right: 0.8rem;
         z-index: 2;
+        cursor: pointer;
+
+        & .bookmarked {
+          svg {
+            fill: #fff;
+          }
+        }
       }
 
       .card-img {

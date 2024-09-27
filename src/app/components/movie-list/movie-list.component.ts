@@ -3,11 +3,14 @@ import { filter, map, Observable } from 'rxjs';
 import { IMedia } from '../../shared/model/media';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { selectFilteredMovie } from '../../shared/state/movie/movie.selectors';
+import {
+  selectBookMarkMovies,
+  selectFilteredMovie,
+} from '../../shared/state/movie/movie.selectors';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { SearchComponent } from '../../shared/search/search.component';
-import { MovieCardComponent } from "../movie-card/movie-card.component";
+import { MovieCardComponent } from '../movie-card/movie-card.component';
 
 @Component({
   selector: 'app-movie-list',
@@ -21,9 +24,9 @@ export class MovieListComponent {
   category!: string | null;
   isTrending!: boolean;
   trendingMovies: IMedia[] = [];
+  bookmarkMovies$!: Observable<IMedia[]>;
 
-  constructor(private route: ActivatedRoute, private store: Store) {
-  }
+  constructor(private route: ActivatedRoute, private store: Store) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -37,6 +40,12 @@ export class MovieListComponent {
         this.trendingMovies = trending;
         this.isTrending = this.trendingMovies.length > 0;
       });
+
+    this.bookmarkedMovies();
+  }
+
+  bookmarkedMovies() {
+    this.bookmarkMovies$ = this.store.select(selectBookMarkMovies);
   }
 
   getCategoryName() {

@@ -19,7 +19,7 @@ export class AuthService {
     console.log('Auth result:', authResult);
     if (authResult && authResult.token) {
       localStorage.setItem('token', authResult.token);
-      localStorage.setItem('name', authResult.email || '');
+      localStorage.setItem('username', authResult.username || '');
       this.authStatus.next(true);
     } else {
       console.error('Invalid auth result:', authResult);
@@ -34,7 +34,7 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  register(userData: { name: string; password: string }): Observable<any> {
+  register(userData: { email: string; password: string }): Observable<any> {
     return this.http.post(this.registerURL, userData).pipe(
       tap((response: any) => {
         console.log('Registration response:', response);
@@ -53,7 +53,7 @@ export class AuthService {
     return this.authStatus.asObservable();
   }
 
-  login(userData: { name: string; password: string }): Observable<any> {
+  login(userData: { email: string; password: string }): Observable<any> {
     return this.http.post(this.loginURL, userData).pipe(
       tap((response: any) => {
         console.log('Login response:', response);

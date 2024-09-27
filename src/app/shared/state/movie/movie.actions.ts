@@ -15,3 +15,8 @@ export const setSearchMovie = createAction(
   '[Movie] Set Search Movie',
   props<{ searchMovie: string }>()
 );
+
+export const bookmarkMovie = createAction(
+  '[Movie] Bookmark Movie',
+  props<{movieTitle: string}>()
+)

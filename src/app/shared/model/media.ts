@@ -6,6 +6,6 @@ export interface IMedia {
   year: number;
   category: 'Movie' | 'Tv Series';
   rating: string;
-  isBookmard: string;
+  isBookmarked: boolean;
   isTrending: boolean;
 }

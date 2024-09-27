@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 export const routes: Routes = [
   {
@@ -23,7 +23,14 @@ export const routes: Routes = [
         (s) => s.SignUpComponent
       ),
   },
-
+  {
+    path: 'category/bookmark',
+    loadComponent: () =>
+      import('./components/bookmark/bookmark.component').then(
+        (m) => m.BookmarkComponent
+      ),
+    canActivate: [AuthGuard],
+  },
   {
     path: 'category/:category',
     loadComponent: () =>

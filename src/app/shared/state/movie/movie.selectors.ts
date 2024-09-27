@@ -31,3 +31,8 @@ export const selectFilteredMovie = (category: string | null) =>
       });
     }
   );
+
+export const selectBookMarkMovies = createSelector(
+  selectMovieState,
+  (state: MovieState) => state.bookMarkMovies
+);

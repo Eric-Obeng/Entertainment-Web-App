@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../shared/services/auth/auth.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -15,7 +15,7 @@ export class HeaderComponent {
   showModal: boolean = false;
   isloggedIn$!: Observable<boolean>;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.isloggedIn$ = this.authService.isLoggedIn();
@@ -32,5 +32,6 @@ export class HeaderComponent {
   logOut() {
     console.log('logout sucessfull');
     this.authService.logout();
+    this.router.navigate(['']);
   }
 }

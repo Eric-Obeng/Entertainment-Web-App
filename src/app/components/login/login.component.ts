@@ -33,13 +33,13 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
 
-    this.route.queryParams.subscribe((params) => {
-      if (params['register'] === 'true') {
-        this.successMessage = 'Registration successful! Please log in.';
-      } else {
-        this.router.navigate(['/']);
-      }
-    });
+    // this.route.queryParams.subscribe((params) => {
+    //   if (params['register'] === 'true') {
+    //     this.successMessage = 'Registration successful! Please log in.';
+    //   } else {
+    //     this.router.navigate(['/']);
+    //   }
+    // });
   }
 
   onSubmit() {
@@ -50,7 +50,7 @@ export class LoginComponent {
     const { email, password } = this.loginForm.value;
 
     const formData = {
-      name: email,
+      email: email,
       password: password,
     };
 

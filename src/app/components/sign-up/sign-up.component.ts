@@ -46,7 +46,7 @@ export class SignUpComponent implements OnInit {
     }
 
     const formData = {
-      name: email,
+      email: email,
       password: password,
     };
 
