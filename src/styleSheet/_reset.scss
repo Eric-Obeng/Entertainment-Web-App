@@ -1,0 +1,23 @@
+// @import './typography';
+
+*,
+*::before,
+*::after {
+  margin: unset;
+  padding: unset;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Outfit-light";
+}

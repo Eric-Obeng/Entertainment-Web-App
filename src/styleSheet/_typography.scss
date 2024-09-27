@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Outfit";
+  src: url(../assets/font/Outfit-Regular.ttf);
+}
+@font-face {
+  font-family: "Outfit-light";
+  src: url(../assets/font/Outfit-Light.ttf);
+}
+@font-face {
+  font-family: "Outfit-medium";
+  src: url(../assets/font/Outfit-Medium.ttf);
+}
+
+.heading-l {
+  font-family: "Outfit-light";
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+.heading-m {
+  font-family: "Outfit-light";
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.heading-s {
+  font-family: "Outfit-medium";
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.heading-xs {
+  font-family: "Outfit-medium";
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.body-m {
+  font-family: "Outfit-light";
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.body-s {
+  font-family: "Outfit-light";
+  font-size: 1.3rem;
+  font-weight: 400;
+}
