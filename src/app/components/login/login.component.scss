@@ -70,6 +70,22 @@
           color: $dark-blue;
         }
       }
+
+      .account {
+        width: 100%;
+        @include flex-row(center, center, 1rem);
+
+        a {
+          color: $red;
+          text-decoration: none;
+          @extend .heading-xs;
+
+          &:link,
+          &:active {
+            color: $red;
+          }
+        }
+      }
     }
   }
 }
