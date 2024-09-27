@@ -19,6 +19,7 @@ import { AuthService } from '../../shared/services/auth/auth.service';
 export class LoginComponent {
   loginForm!: FormGroup;
   successMessage: string = '';
+  errorMessage: string = '';
 
   constructor(
     private fb: FormBuilder,
