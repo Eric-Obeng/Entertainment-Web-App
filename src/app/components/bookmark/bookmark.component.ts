@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { IMedia } from '../../shared/model/media';
-import { map, Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { map, Observable, combineLatest } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { selectBookMarkMovies } from '../../shared/state/movie/movie.selectors';
+import {
+  selectBookMarkMovies,
+  selectSearchMovie,
+} from '../../shared/state/movie/movie.selectors';
 import { CommonModule } from '@angular/common';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
-import { HeaderComponent } from "../header/header.component";
-import { SearchComponent } from "../../shared/search/search.component";
+import { HeaderComponent } from '../header/header.component';
+import { SearchComponent } from '../../shared/search/search.component';
 
 @Component({
   selector: 'app-bookmark',
@@ -20,29 +22,29 @@ export class BookmarkComponent {
   bookmarkMovies$!: Observable<IMedia[]>;
   movies$!: Observable<IMedia[]>;
   tvSeries$!: Observable<IMedia[]>;
+  searchQuery$!: Observable<string>;
 
-  constructor(private route: ActivatedRoute, private store: Store) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.bookmarkedMovies();
+    // Select the bookmarked movies and the search query from the store
+    this.bookmarkMovies$ = this.store.select(selectBookMarkMovies);
+    this.searchQuery$ = this.store.select(selectSearchMovie);
 
-    this.movies$ = this.bookmarkMovies$.pipe(
-      map((movies: IMedia[]) =>
-        movies.filter((movie) => movie.category === 'Movie')
-      )
-    );
-
-    this.tvSeries$ = this.bookmarkMovies$.pipe(
-      map((movies: IMedia[]) =>
-        movies.filter((movie) => movie.category === 'TV Series')
-      )
-    );
-
-    console.log(this.movies$.subscribe((val) => console.log(val)));
-    console.log(this.tvSeries$.subscribe((val) => console.log(val)));
+    // Filter movies and TV series based on the search query and category
+    this.movies$ = this.getFilteredMedia('Movie');
+    this.tvSeries$ = this.getFilteredMedia('TV Series');
   }
 
-  bookmarkedMovies() {
-    this.bookmarkMovies$ = this.store.select(selectBookMarkMovies);
+  getFilteredMedia(category: string): Observable<IMedia[]> {
+    return combineLatest([this.bookmarkMovies$, this.searchQuery$]).pipe(
+      map(([movies, searchQuery]) =>
+        movies.filter(
+          (movie) =>
+            movie.category === category &&
+            movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      )
+    );
   }
 }
