@@ -1,0 +1,88 @@
+@use "../../../styleSheet/breakpoints";
+@use "../../../styleSheet/variables" as *;
+@use "../../../styleSheet/typography" as *;
+@use "../../../styleSheet/mixins" as *;
+
+.bookmark {
+  @include flex-column(start, start, 4rem);
+  width: 100%;
+  @include flex-column();
+  overflow-x: hidden;
+
+  .header {
+    width: 100%;
+  }
+  .main {
+    @include flex-column(start, start, 3.3rem);
+    width: 100%;
+    padding: 1.6rem;
+    overflow: auto;
+
+    .search {
+      width: 100%;
+    }
+
+    .movies {
+      @include flex-column(start, start, 2rem);
+      width: 100%;
+
+      .bookmark {
+        width: 100%;
+        @include flex-column(start, start, 2.4rem);
+
+        .list {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-column-gap: 1.5rem;
+          grid-row-gap: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoints.mq(tablet) {
+  .bookmark {
+    padding: 2.4rem;
+    border-radius: 1rem;
+
+    .main {
+      padding: 2.4rem;
+
+      .movies {
+        .bookmark {
+          .list {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+      }
+    }
+  }
+}
+@include breakpoints.mq(desktop) {
+  .bookmark {
+    @include flex-row(start, start);
+    padding: 3.2rem;
+    overflow: hidden;
+
+    .header {
+      width: 9.6rem;
+    }
+
+    .main {
+      padding: 2rem 3.6rem;
+      overflow: scroll;
+      height: calc(100vh - 6.4rem);
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+
+      .movies {
+        .bookmark {
+          .list {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+      }
+    }
+  }
+}

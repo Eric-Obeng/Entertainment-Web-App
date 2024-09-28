@@ -6,7 +6,7 @@ import { IMedia } from '../../model/media';
 export const initialState: MovieState = {
   MovieItems: [],
   searchMovie: '',
-  bookMarkMovies: [],
+  bookMarkMovies: JSON.parse(localStorage.getItem('bookMarkMovies') || '[]'),
   loading: false,
   error: null,
 };
@@ -15,9 +15,14 @@ export const movieReducer = createReducer(
   initialState,
   on(MovieActions.loadMovies, (state) => ({ ...state })),
   on(MovieActions.loadMoviesSuccess, (state, { movies }) => {
+    const storedBookmarks = JSON.parse(
+      localStorage.getItem('bookMarkMovies') || '[]'
+    );
     const updatedMovies = movies.map((movie) => ({
       ...movie,
-      isBookmarked: false
+      isBookmarked: storedBookmarks.some(
+        (m: IMedia) => m.title === movie.title
+      ),
     }));
     return { ...state, MovieItems: updatedMovies };
   }),
@@ -40,10 +45,11 @@ export const movieReducer = createReducer(
       return movie;
     });
 
-    // Create a new array of bookmarked movies based on updatedMovies
     const bookMarkedMovies = updatedMovies.filter(
       (movie) => movie.isBookmarked
     );
+
+    localStorage.setItem('bookMarkMovies', JSON.stringify(bookMarkedMovies));
 
     return {
       ...state,

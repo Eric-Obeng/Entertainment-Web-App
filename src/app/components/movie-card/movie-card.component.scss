@@ -57,6 +57,14 @@
     right: 0.8rem;
     z-index: 2;
     cursor: pointer;
+
+    &:hover {
+      background: $white;
+
+      path {
+        stroke: #000000;
+      }
+    }
   }
   .card-info {
     width: 100%;
@@ -160,6 +168,14 @@
         right: 0.8rem;
         z-index: 2;
         cursor: pointer;
+
+        &:hover {
+          background: $white;
+
+          path {
+            stroke: #000000;
+          }
+        }
 
         & .bookmarked {
           svg {

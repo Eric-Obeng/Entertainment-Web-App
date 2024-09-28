@@ -11,7 +11,7 @@
       Play
     </button>
   </div>
-  <button class="bookmark">
+  <button class="bookmark" (click)="onBookMarkToggle(movie.title)">
     @if (movie.isBookmarked) {
     <svg
       (click)="onBookMarkToggle(movie.title)"
@@ -91,7 +91,7 @@
           Play
         </button>
       </div>
-      <button class="bookmark">
+      <button class="bookmark" (click)="onBookMarkToggle(movie.title)">
         @if (movie.isBookmarked) {
         <svg
           (click)="onBookMarkToggle(movie.title)"

@@ -33,22 +33,8 @@
           }
         </div>
       </div>
-      } @if (category === 'bookmark') {
-
-      <div class="category">
-        <div
-          class="recommended-movies list"
-          *ngIf="bookmarkMovies$ | async as bookmark"
-        >
-          @for (item of bookmark; track $index) {
-
-          <app-movie-card [movie]="item" [isTrending]="false" />
-
-          }
-        </div>
-      </div>
-
       }
     </div>
+
   </div>
 </div>
