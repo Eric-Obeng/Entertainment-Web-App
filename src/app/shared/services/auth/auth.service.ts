@@ -19,7 +19,7 @@ export class AuthService {
     console.log('Auth result:', authResult);
     if (authResult && authResult.token) {
       localStorage.setItem('token', authResult.token);
-      localStorage.setItem('username', authResult.username || '');
+      localStorage.setItem('username', authResult.email || '');
       this.authStatus.next(true);
     } else {
       console.error('Invalid auth result:', authResult);

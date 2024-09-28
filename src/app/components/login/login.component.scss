@@ -1,3 +1,4 @@
+@use "../../../styleSheet/breakpoints";
 @use "../../../styleSheet/mixins" as *;
 @use "../../../styleSheet/typography" as *;
 @use "../../../styleSheet/variables" as *;
@@ -16,7 +17,7 @@
       @include flex-column(start, start, 4rem);
       width: 100%;
       background-color: $dark-blue-light;
-      
+
       padding: 2.4rem;
       border-radius: 1rem;
 
@@ -60,7 +61,7 @@
         cursor: pointer;
         background: $red;
         border: none;
-        border-radius: .6rem;
+        border-radius: 0.6rem;
         color: $white;
         @extend .heading-xs;
 
@@ -69,6 +70,33 @@
           color: $dark-blue;
         }
       }
+
+      .account {
+        width: 100%;
+        @include flex-row(center, center, 1rem);
+
+        a {
+          color: $red;
+          text-decoration: none;
+          @extend .heading-xs;
+
+          &:link,
+          &:active {
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoints.mq(tablet) {
+  .login-div {
+    @include flex-column(center, center);
+    .login {
+      width: 40rem;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

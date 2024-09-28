@@ -1,3 +1,4 @@
+@use "../../../styleSheet/breakpoints";
 @use "../../../styleSheet/mixins" as *;
 @use "../../../styleSheet/typography" as *;
 @use "../../../styleSheet/variables" as *;
@@ -69,6 +70,33 @@
           color: $dark-blue;
         }
       }
+
+      .account {
+        width: 100%;
+        @include flex-row(center, center, 1rem);
+
+        a {
+          color: $red;
+          text-decoration: none;
+          @extend .heading-xs;
+
+          &:link,
+          &:active {
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoints.mq(tablet) {
+  .signup-div {
+    @include flex-column(center, center);
+    .signup {
+      width: 40rem;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
