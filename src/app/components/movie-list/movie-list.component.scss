@@ -37,29 +37,29 @@
           scroll-behavior: smooth;
         }
       }
-    }
 
-    .recommended {
-      width: 100%;
-      @include flex-column(start, start, 2.4rem);
+      .recommended {
+        width: 100%;
+        @include flex-column(start, start, 2.4rem);
 
-      .recommended-movies {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 1.5rem;
-        grid-row-gap: 1.5rem;
+        .recommended-movies {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-column-gap: 1.5rem;
+          grid-row-gap: 1.5rem;
+        }
       }
-    }
 
-    .category {
-      width: 100%;
-      @include flex-column(start, start, 2.4rem);
+      .category {
+        width: 100%;
+        @include flex-column(start, start, 2.4rem);
 
-      .recommended-movies {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 1.5rem;
-        grid-row-gap: 1.5rem;
+        .recommended-movies {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-column-gap: 1.5rem;
+          grid-row-gap: 1.5rem;
+        }
       }
     }
   }
@@ -73,14 +73,16 @@
     .main {
       padding: 2.4rem;
 
-      .recommended {
-        .recommended-movies {
-          grid-template-columns: repeat(3, 1fr);
+      .movies {
+        .recommended {
+          .recommended-movies {
+            grid-template-columns: repeat(3, 1fr);
+          }
         }
-      }
-      .category {
-        .recommended-movies {
-          grid-template-columns: repeat(3, 1fr);
+        .category {
+          .recommended-movies {
+            grid-template-columns: repeat(3, 1fr);
+          }
         }
       }
     }
@@ -104,14 +106,16 @@
       scrollbar-width: none;
       scroll-behavior: smooth;
 
-      .recommended {
-        .recommended-movies {
-          grid-template-columns: repeat(4, 1fr);
+      .movies {
+        .recommended {
+          .recommended-movies {
+            grid-template-columns: repeat(4, 1fr);
+          }
         }
-      }
-      .category {
-        .recommended-movies {
-          grid-template-columns: repeat(4, 1fr);
+        .category {
+          .recommended-movies {
+            grid-template-columns: repeat(4, 1fr);
+          }
         }
       }
     }

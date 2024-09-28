@@ -11,11 +11,18 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { SearchComponent } from '../../shared/search/search.component';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { BookmarkComponent } from '../bookmark/bookmark.component';
 
 @Component({
   selector: 'app-movie-list',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, SearchComponent, MovieCardComponent],
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    SearchComponent,
+    MovieCardComponent,
+    BookmarkComponent,
+  ],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss',
 })
@@ -24,7 +31,6 @@ export class MovieListComponent {
   category!: string | null;
   isTrending!: boolean;
   trendingMovies: IMedia[] = [];
-  bookmarkMovies$!: Observable<IMedia[]>;
 
   constructor(private route: ActivatedRoute, private store: Store) {}
 
@@ -40,12 +46,6 @@ export class MovieListComponent {
         this.trendingMovies = trending;
         this.isTrending = this.trendingMovies.length > 0;
       });
-
-    this.bookmarkedMovies();
-  }
-
-  bookmarkedMovies() {
-    this.bookmarkMovies$ = this.store.select(selectBookMarkMovies);
   }
 
   getCategoryName() {
@@ -54,7 +54,7 @@ export class MovieListComponent {
     } else if (this.category === 'tv series') {
       return `TV Series`;
     } else if (this.category === 'bookmark') {
-      return `Bookmarked Movies`;
+      return null;
     } else {
       return `Recommended for you`;
     }

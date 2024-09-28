@@ -6,11 +6,13 @@ import { Store } from '@ngrx/store';
 import { selectBookMarkMovies } from '../../shared/state/movie/movie.selectors';
 import { CommonModule } from '@angular/common';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { HeaderComponent } from "../header/header.component";
+import { SearchComponent } from "../../shared/search/search.component";
 
 @Component({
   selector: 'app-bookmark',
   standalone: true,
-  imports: [CommonModule, MovieCardComponent],
+  imports: [CommonModule, MovieCardComponent, HeaderComponent, SearchComponent],
   templateUrl: './bookmark.component.html',
   styleUrl: './bookmark.component.scss',
 })

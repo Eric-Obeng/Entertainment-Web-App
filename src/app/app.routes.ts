@@ -38,4 +38,12 @@ export const routes: Routes = [
         (m) => m.MovieListComponent
       ),
   },
+  // {
+  //   path: 'category/bookmark',
+  //   loadComponent: () =>
+  //     import('./components/movie-list/movie-list.component').then(
+  //       (m) => m.MovieListComponent
+  //     ),
+  //   canActivate: [AuthGuard],
+  // },
 ];
