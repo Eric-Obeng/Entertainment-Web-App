@@ -12,7 +12,7 @@
   padding: 1.6rem;
 
   .pages {
-    @include flex-row(start, start, 2.4rem);
+    @include flex-row(flex-start, flex-start, 2.4rem);
 
     & svg {
       fill: $grey-blue;
@@ -98,7 +98,7 @@
     width: 9.6rem;
 
     .pages {
-      @include flex-column(center, start, 2.4rem);
+      @include flex-column(center, flex-start, 2.4rem);
       flex: 1;
       margin-top: 3.2rem;
     }

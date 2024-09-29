@@ -3,7 +3,7 @@
 @use "../../../styleSheet/typography" as *;
 
 .search-container {
-  @include flex-row(center, start, 1.6rem);
+  @include flex-row(center, flex-start, 1.6rem);
   width: 100%;
   height: 2.4rem;
 
