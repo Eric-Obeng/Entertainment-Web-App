@@ -4,7 +4,7 @@
 @use "../../../styleSheet/mixins" as *;
 
 .bookmark {
-  @include flex-column(start, start, 4rem);
+  @include flex-column(flex-start, flex-start, 4rem);
   width: 100%;
   @include flex-column();
   overflow-x: hidden;
@@ -13,7 +13,7 @@
     width: 100%;
   }
   .main {
-    @include flex-column(start, start, 3.3rem);
+    @include flex-column(flex-start, flex-start, 3.3rem);
     width: 100%;
     padding: 1.6rem;
     overflow: auto;
@@ -23,12 +23,12 @@
     }
 
     .movies {
-      @include flex-column(start, start, 2rem);
+      @include flex-column(flex-start, flex-start, 2rem);
       width: 100%;
 
       .bookmark {
         width: 100%;
-        @include flex-column(start, start, 2.4rem);
+        @include flex-column(flex-start, flex-start, 2.4rem);
 
         .list {
           display: grid;
@@ -61,7 +61,7 @@
 }
 @include breakpoints.mq(desktop) {
   .bookmark {
-    @include flex-row(start, start);
+    @include flex-row(flex-start, flex-start);
     padding: 3.2rem;
     overflow: hidden;
 

@@ -3,11 +3,12 @@ import { IMedia } from '../../shared/model/media';
 import { Store } from '@ngrx/store';
 import { bookmarkMovie } from '../../shared/state/movie/movie.actions';
 import { AuthService } from '../../shared/services/auth/auth.service';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-movie-card',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.scss',
 })
