@@ -14,6 +14,7 @@
       routerLinkActive="activeRoute"
       [routerLinkActiveOptions]="{ exact: true }"
       title="home"
+      aria-label="home"
     >
       <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -28,6 +29,7 @@
       [routerLink]="['/category', 'movie']"
       routerLinkActive="activeRoute"
       title="movies"
+      aria-label="movies"
     >
       <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -41,6 +43,7 @@
       [routerLink]="['/category', 'tv series']"
       routerLinkActive="activeRoute"
       title="TV Series"
+      aria-label="Tv-series"
     >
       <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -56,6 +59,7 @@
         [routerLink]="['/category', 'bookmark']"
         routerLinkActive="activeRoute"
         title="Bookmarked"
+        aria-label="bookmark"
       >
         <svg width="17" height="20" xmlns="http://www.w3.org/2000/svg">
           <path

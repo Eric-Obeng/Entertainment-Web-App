@@ -1,7 +1,7 @@
 @if (isTrending) {
 <div class="trending-movies">
   <div class="play-div">
-    <button>
+    <button name="play" aria-label="play">
       <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M15 0C6.713 0 0 6.713 0 15c0 8.288 6.713 15 15 15 8.288 0 15-6.712 15-15 0-8.287-6.712-15-15-15Zm-3 21V8l9 6.5-9 6.5Z"
@@ -11,7 +11,12 @@
       Play
     </button>
   </div>
-  <button class="bookmark" (click)="onBookMarkToggle(movie.title)">
+  <button
+    class="bookmark"
+    name="bookmark"
+    aria-label="bookmark"
+    (click)="onBookMarkToggle(movie.title)"
+  >
     @if (movie.isBookmarked) {
     <svg
       (click)="onBookMarkToggle(movie.title)"
@@ -50,8 +55,11 @@
         srcset="{{movie.thumbnail.trending.large}}"
       />
       <img
-        src="{{ movie.thumbnail.trending.small }}"
+        ngSrc="{{ movie.thumbnail.trending.small }}"
         alt="{{ movie.title }} image"
+        width="480"
+        height="200"
+        priority
       />
     </picture>
   </div>
@@ -81,7 +89,7 @@
   <div>
     <div class="movies-div">
       <div class="play-div">
-        <button>
+        <button name="play" aria-label="paly">
           <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M15 0C6.713 0 0 6.713 0 15c0 8.288 6.713 15 15 15 8.288 0 15-6.712 15-15 0-8.287-6.712-15-15-15Zm-3 21V8l9 6.5-9 6.5Z"
@@ -91,7 +99,12 @@
           Play
         </button>
       </div>
-      <button class="bookmark" (click)="onBookMarkToggle(movie.title)">
+      <button
+        class="bookmark"
+        name="bookmark"
+        aria-label="bookmark"
+        (click)="onBookMarkToggle(movie.title)"
+      >
         @if (movie.isBookmarked) {
         <svg
           (click)="onBookMarkToggle(movie.title)"
@@ -130,12 +143,15 @@
             srcset="{{movie.thumbnail.regular.medium}}"
           />
           <source
-            media="(min-width: 765px)"
+            media="(min-width: 700px)"
             srcset="{{movie.thumbnail.regular.large}}"
           />
           <img
-            src="{{ movie.thumbnail.regular.small }}"
+            ngSrc="{{ movie.thumbnail.regular.small }}"
             alt="{{ movie.title }} image"
+            width="440"
+            height="200"
+            priority
           />
         </picture>
       </div>

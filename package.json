@@ -31,8 +31,13 @@
     "@angular/cli": "^17.3.8",
     "@angular/compiler-cli": "^17.3.0",
     "@types/jasmine": "~5.1.0",
+    "brotli-webpack-plugin": "^1.1.0",
+    "compression-webpack-plugin": "^11.1.0",
+    "css-minimizer-webpack-plugin": "^7.0.0",
     "file-loader": "^6.2.0",
-    "image-minimizer-webpack-plugin": "^4.0.0",
+    "glob": "^11.0.0",
+    "glob-all": "^3.3.1",
+    "image-minimizer-webpack-plugin": "^4.1.0",
     "image-webpack-loader": "^8.1.0",
     "imagemin": "^9.0.0",
     "imagemin-mozjpeg": "^10.0.0",
@@ -43,6 +48,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.4.2"
+    "purgecss-webpack-plugin": "^6.0.0",
+    "terser-webpack-plugin": "^5.3.10",
+    "typescript": "~5.4.2",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }
