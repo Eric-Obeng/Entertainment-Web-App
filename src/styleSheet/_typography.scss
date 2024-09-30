@@ -1,14 +1,17 @@
 @font-face {
   font-family: "Outfit";
-  src: url(../assets/font/Outfit-Regular.ttf);
+  src: url(../assets/font/Outfit-Regular.ttf) format("truetype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Outfit-light";
-  src: url(../assets/font/Outfit-Light.ttf);
+  src: url(../assets/font/Outfit-Light.ttf) format("truetype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Outfit-medium";
-  src: url(../assets/font/Outfit-Medium.ttf);
+  src: url(../assets/font/Outfit-Medium.ttf) format("truetype");
+  font-display: swap;
 }
 
 .heading-l {
